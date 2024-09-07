@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SearchEngine;
 
 
 Route::get('/default', function () {
@@ -12,3 +13,4 @@ Route::get('/', function () {
 });
 
 Route::post('/searchContent', [SearchEngine::class, 'searchBrowser']);
+Route::get('testing/', [SearchEngine::class, 'getsearchData']);

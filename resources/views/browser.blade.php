@@ -61,28 +61,27 @@
             <div class="container bg-white pt-5">
              
             
-
-
-  
-
             
-                    <div class="row blog-item px-3 pb-5">
-                        <div class="col-md-5">
-                            <img class="img-fluid mb-4 mb-md-0" src="assets/images/img/blog-3.jpg" alt="Image">
-                        </div>
-                        <div class="col-md-7">
-                            <h3 class="mt-md-4 px-md-3 mb-2 py-2 bg-white font-weight-bold">Lorem ipsum dolor sit amet</h3>
-                            <div class="d-flex mb-3">
-                                <small class="mr-2 text-muted"><i class="fa fa-calendar-alt"></i> 01-Jan-2045</small>
-                                <small class="mr-2 text-muted"><i class="fa fa-folder"></i> Web Design</small>
-                                <small class="mr-2 text-muted"><i class="fa fa-comments"></i> 15 Comments</small>
+                @if (!empty($data))
+                <div class="row">
+                    @foreach ($data as $item)
+                        <div class="col-md-4 mb-4">
+                            <div class="card">
+                                <img src="{{ $item['image'] }}" class="card-img-top" alt="Image">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ $item['title'] }}</h5>
+                                    <p class="card-text">{{ $item['source'] }}</p>
+                                    <a href="{{ $item['url'] }}" class="btn btn-primary">Read More</a>
+                                </div>
                             </div>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu suscipit orci velit id libero
-                            </p>
-                            <a class="btn btn-link p-0" href="">Read More <i class="fa fa-angle-right"></i></a>
                         </div>
-                    </div>
+                    @endforeach
+                </div>
+            @else
+                <p>No results found.</p>
+            @endif
+
+                    
                     <div class="row blog-item px-3 pb-5">
                         <div class="col-md-5">
                             <img class="img-fluid mb-4 mb-md-0" src="assets/images/img/blog-4.jpg" alt="Image">
@@ -100,6 +99,8 @@
                             <a class="btn btn-link p-0" href="">Read More <i class="fa fa-angle-right"></i></a>
                         </div>
                     </div>
+
+
                     <div class="row blog-item px-3 pb-5">
                         <div class="col-md-5">
                             <img class="img-fluid mb-4 mb-md-0" src="assets/images/img/blog-5.jpg" alt="Image">
@@ -168,27 +169,7 @@
                 <!-- Footer End -->
             </div>
 
-            <script>
-                $(document).ready(function() {
-                    $('#searchForm').on('submit', function(event) {
-                        event.preventDefault(); // Prevent the default form submission
-            
-                        $.ajax({
-                            url: $(this).attr('action'),
-                            type: 'POST',
-                            data: $(this).serialize(),
-                            success: function(response) {
-                                // Update the search results container with the response
-                                $('#searchResults').html(response);
-                            },
-                            error: function(xhr) {
-                                // Handle error here
-                                $('#searchResults').html('<p>An error occurred. Please try again.</p>');
-                            }
-                        });
-                    });
-                });
-            </script>
+           
             
         </div>
         
