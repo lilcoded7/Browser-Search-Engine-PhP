@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>Bloggy - Personal Blog Template</title>
+        <title>Final Project</title>
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
         <meta content="Free Website Template" name="keywords">
         <meta content="Free Website Template" name="description">
@@ -26,17 +26,12 @@
         <div class="sidebar">
             <div class="sidebar-text d-flex flex-column h-100 justify-content-center text-center">
                 <img class="mx-auto d-block w-75 bg-primary img-fluid rounded-circle mb-4 p-3" src="assets/images/img/profile.jpg" alt="Image">
-                <h1 class="font-weight-bold">Kate Glover</h1>
+                <h1 class="font-weight-bold">Welcome to Search Engine </h1>
                 <p class="mb-4">
-                    Justo stet no accusam stet invidunt sanctus magna clita vero eirmod, sit sit labore dolores lorem. Lorem at sit dolor dolores sed diam justo
+                    Quickly find what you need with [Your Search Engine Name] – your fast and reliable search solution. Enjoy instant results, smart search features, and safe browsing. Discover images, articles, and more with ease. Start exploring now!
                 </p>
-                <div class="d-flex justify-content-center mb-5">
-                    <a class="btn btn-outline-primary mr-2" href="#"><i class="fab fa-twitter"></i></a>
-                    <a class="btn btn-outline-primary mr-2" href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a class="btn btn-outline-primary mr-2" href="#"><i class="fab fa-linkedin-in"></i></a>
-                    <a class="btn btn-outline-primary mr-2" href="#"><i class="fab fa-instagram"></i></a>
-                </div>
-                <a href="" class="btn btn-lg btn-block btn-primary mt-auto">Hire Me</a>
+              
+                <a href="" class="btn btn-lg btn-block btn-primary mt-auto">Final Project</a>
             </div>
             <div class="sidebar-icon d-flex flex-column h-100 justify-content-center text-right">
                 <i class="fas fa-2x fa-angle-double-right text-primary"></i>
@@ -47,115 +42,50 @@
 
             <form id="searchForm" action="{{ url('/searchContent') }}" method="POST">
                 @csrf
-                <div style="border: 2px solid red;" class="container py-5 px-2 bg-primary">
+                <div class="container py-5 px-2 bg-primary">
                     <div class="row py-5 px-4">
                         <div style="margin: auto; padding: 15px; border-radius: 10px; width: 150px;" class="col-sm-6 text-center text-md-right">
                             <input name="searContent" style="padding: 8px; border-radius: 3px;" type="text" placeholder="searching..." required>
-                            <button type="submit">Search</button>
+                            <button style="padding: 8px; border-radius: 3px; color:  white; background-color: green;" type="submit">Search</button>
                         </div>
                     </div>
                 </div>
             </form>
                 
-                
-            <div class="container bg-white pt-5">
-             
-            
-            
-                @if (!empty($data))
-                <div class="row">
-                    @foreach ($data as $item)
-                        <div class="col-md-4 mb-4">
-                            <div class="card">
-                                <img src="{{ $item['image'] }}" class="card-img-top" alt="Image">
-                                <div class="card-body">
-                                    <h5 class="card-title">{{ $item['title'] }}</h5>
-                                    <p class="card-text">{{ $item['source'] }}</p>
-                                    <a href="{{ $item['url'] }}" class="btn btn-primary">Read More</a>
-                                </div>
-                            </div>
-                        </div>
-                    @endforeach
-                </div>
-            @else
-                <p>No results found.</p>
+            @if(!empty($data['message']))
+                <p style="color: red;">{{$data['message']}}</p> 
             @endif
+            
 
+            <div class="container bg-white pt-5">
+          
+                @if (!empty($data))
+                @foreach ($data as $item)
+                <div  class="row blog-item px-3 pb-5">
+                    <div style="height: 200px; width: 100px;" class="col-md-5">
+                        <img style="object-fit: cover; height: 100%; width: 100%; display: cover;" class="img-fluid mb-4 mb-md-0" src="{{$item['image']}}" alt="Image">
+                    </div>
+                    <div class="col-md-7">
+                        {{-- <h3 class="mt-md-4 px-md-3 mb-2 py-2 bg-white font-weight-bold">{{$item['title']}}</h3> --}}
+                        <div class="d-flex mb-3">
+                            <small class="mr-2 text-muted"><i class="fa fa-calendar-alt"></i>Source {{$item['source']}}</small>
+                            <small class="mr-2 text-muted"><i class="fa fa-folder"></i>Height {{$item['height']}}</small>
+                            <small class="mr-2 text-muted"><i class="fa fa-comments"></i>Width {{$item['width']}}</small>
+                        </div>
+                        <p>
+                            {{ $item['title'] }}
+                        </p>
+                        <a class="btn btn-link p-0" href="{{$item['url']}}">Read More <i class="fa fa-angle-right"></i></a>
+                    </div>
+                </div>
+                @endforeach 
+                @else
+                <p style="margin: auto;">Search ...</p>
+                @endif 
+
+
+              
                     
-                    <div class="row blog-item px-3 pb-5">
-                        <div class="col-md-5">
-                            <img class="img-fluid mb-4 mb-md-0" src="assets/images/img/blog-4.jpg" alt="Image">
-                        </div>
-                        <div class="col-md-7">
-                            <h3 class="mt-md-4 px-md-3 mb-2 py-2 bg-white font-weight-bold">Lorem ipsum dolor sit amet</h3>
-                            <div class="d-flex mb-3">
-                                <small class="mr-2 text-muted"><i class="fa fa-calendar-alt"></i> 01-Jan-2045</small>
-                                <small class="mr-2 text-muted"><i class="fa fa-folder"></i> Web Design</small>
-                                <small class="mr-2 text-muted"><i class="fa fa-comments"></i> 15 Comments</small>
-                            </div>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu suscipit orci velit id libero
-                            </p>
-                            <a class="btn btn-link p-0" href="">Read More <i class="fa fa-angle-right"></i></a>
-                        </div>
-                    </div>
-
-
-                    <div class="row blog-item px-3 pb-5">
-                        <div class="col-md-5">
-                            <img class="img-fluid mb-4 mb-md-0" src="assets/images/img/blog-5.jpg" alt="Image">
-                        </div>
-                        <div class="col-md-7">
-                            <h3 class="mt-md-4 px-md-3 mb-2 py-2 bg-white font-weight-bold">Lorem ipsum dolor sit amet</h3>
-                            <div class="d-flex mb-3">
-                                <small class="mr-2 text-muted"><i class="fa fa-calendar-alt"></i> 01-Jan-2045</small>
-                                <small class="mr-2 text-muted"><i class="fa fa-folder"></i> Web Design</small>
-                                <small class="mr-2 text-muted"><i class="fa fa-comments"></i> 15 Comments</small>
-                            </div>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu suscipit orci velit id libero
-                            </p>
-                            <a class="btn btn-link p-0" href="">Read More <i class="fa fa-angle-right"></i></a>
-                        </div>
-                    </div>
-                    <div class="row blog-item px-3 pb-5">
-                        <div class="col-md-5">
-                            <img class="img-fluid mb-4 mb-md-0" src="assets/images/img/blog-6.jpg" alt="Image">
-                        </div>
-                        <div class="col-md-7">
-                            <h3 class="mt-md-4 px-md-3 mb-2 py-2 bg-white font-weight-bold">Lorem ipsum dolor sit amet</h3>
-                            <div class="d-flex mb-3">
-                                <small class="mr-2 text-muted"><i class="fa fa-calendar-alt"></i> 01-Jan-2045</small>
-                                <small class="mr-2 text-muted"><i class="fa fa-folder"></i> Web Design</small>
-                                <small class="mr-2 text-muted"><i class="fa fa-comments"></i> 15 Comments</small>
-                            </div>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu suscipit orci velit id libero
-                            </p>
-                            <a class="btn btn-link p-0" href="">Read More <i class="fa fa-angle-right"></i></a>
-                        </div>
-                    </div>
-                    <div class="row px-3 pb-5">
-                        <nav aria-label="Page navigation">
-                          <ul class="pagination m-0 mx-3">
-                            <li class="page-item disabled">
-                              <a class="page-link" href="#" aria-label="Previous">
-                                <span aria-hidden="true">&laquo;</span>
-                                <span class="sr-only">Previous</span>
-                              </a>
-                            </li>
-                            <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                            <li class="page-item"><a class="page-link" href="#">2</a></li>
-                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                            <li class="page-item">
-                              <a class="page-link" href="#" aria-label="Next">
-                                <span aria-hidden="true">&raquo;</span>
-                                <span class="sr-only">Next</span>
-                              </a>
-                            </li>
-                          </ul>
-                        </nav>
-                    </div>
                 </div>
                 <!-- Blog List End -->
                 
@@ -163,7 +93,7 @@
                 <!-- Footer Start -->
                 <div class="container py-4 bg-secondary text-center">
                     <p class="m-0 text-white">
-                        &copy; <a class="text-white font-weight-bold" href="#">Your Site Name</a>. All Rights Reserved. Designed by <a class="text-white font-weight-bold" href="https://htmlcodex.com">HTML Codex</a>
+                        &copy; <a class="text-white font-weight-bold" href="#">Search Engine</a>
                     </p>
                 </div>
                 <!-- Footer End -->
