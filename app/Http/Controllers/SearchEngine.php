@@ -43,7 +43,7 @@ class SearchEngine extends Controller
                     'region' => 'wt-wt',
                     'safesearch' => 'off',
                     'timelimit' => 'y',
-                    'max_results' => 20,
+                    'max_results' => 50,
                 ]);
 
                 Log::info('API response: ' . $response->body());
