@@ -25,13 +25,13 @@
     <div class="wrapper">
         <div class="sidebar">
             <div class="sidebar-text d-flex flex-column h-100 justify-content-center text-center">
-                <img class="mx-auto d-block w-75 bg-primary img-fluid rounded-circle mb-4 p-3" src="assets/images/img/profile.jpg" alt="Image">
-                <h1 class="font-weight-bold">Welcome to Search Engine </h1>
+                <img class="mx-auto d-block w-75 bg-primary img-fluid rounded-circle mb-4 p-3" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2vTgS4HOgts25BhEX6TgIViV0UK-_HsFV2Q&s" alt="Image">
+                <h1 class="font-weight-bold">Welcome to Uenr Search Engine </h1>
                 <p class="mb-4">
-                    Quickly find what you need with [Your Search Engine Name] – your fast and reliable search solution. Enjoy instant results, smart search features, and safe browsing. Discover images, articles, and more with ease. Start exploring now!
+                    Quickly find what you need with Uenr Search Engine – your fast and reliable search solution. Enjoy instant results, smart search features, and safe browsing. Discover images, articles, and more with ease. Start exploring now!
                 </p>
               
-                <a href="" class="btn btn-lg btn-block btn-primary mt-auto">Final Project</a>
+                <a href="" class="btn btn-lg btn-block btn-primary mt-auto">Uenr Search Engine</a>
             </div>
             <div class="sidebar-icon d-flex flex-column h-100 justify-content-center text-right">
                 <i class="fas fa-2x fa-angle-double-right text-primary"></i>
@@ -80,7 +80,8 @@
                 </div>
                 @endforeach 
                 @else
-                <p style="margin: auto;">Search ...</p>
+                {{-- <p style="margin: auto;">Search ...</p> --}}
+                <img style="width: 100px;" class="mx-auto d-block w-75 bg-primary img-fluid rounded-circle mb-4 p-3" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2vTgS4HOgts25BhEX6TgIViV0UK-_HsFV2Q&s" alt="Image">
                 @endif 
 
 
@@ -93,7 +94,7 @@
                 <!-- Footer Start -->
                 <div class="container py-4 bg-secondary text-center">
                     <p class="m-0 text-white">
-                        &copy; <a class="text-white font-weight-bold" href="#">Search Engine</a>
+                        &copy; <a class="text-white font-weight-bold" href="#">Uenr Search Engine</a>
                     </p>
                 </div>
                 <!-- Footer End -->
