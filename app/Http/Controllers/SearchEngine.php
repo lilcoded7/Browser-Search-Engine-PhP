@@ -34,7 +34,7 @@ class SearchEngine extends Controller
             $data = [];
             $error = 'Please enter a search query.';
         } else {
-            $endpoint = 'http://127.0.0.1:7000/api/search/browser/';
+            $endpoint = 'https://backendapibrowser.onrender.com/api/search/browser/';
             
             try {
                 $response = Http::get($endpoint, [
